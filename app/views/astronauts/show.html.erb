@@ -1,0 +1,12 @@
+<h1><%= @astronaut.name %></h1>
+
+<% @astronaut.missions.each do |mission| %>
+  <%= mission.title %>
+<% end %>
+
+<%= form_with url: "/astronauts/#{@astronaut.id}/missions", method: :post do |form| %>
+  <%= form.label :mission_id, "Mission ID" %>
+  <%= form.number_field :mission_id %>
+
+  <%= form.submit "Lift Off" %>
+<% end %>
